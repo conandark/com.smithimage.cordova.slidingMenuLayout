@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.smithimage.cordova.slidingMenuLayout"
+      version="0.1.0">
+
+    <name>SlidingMenuLayout</name>
+    <description>Cordova SlidingMenuLayout Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova, menu </keywords>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="config.xml" parent="/widget">
+          <feature name="SlidingMenuLayoutPlugin">
+            <param name="android-package" value="com.smithimage.cordova.slidingMenuLayout.SlidingMenuLayoutPlugin"/>
+          </feature>
+        </config-file>
+
+       
+       <source-file src="src/android/com/smithimage/cordova/slidingMenuLayout/SlidingMenuLayoutPlugin.java" 
+        	target-dir="com/smithimage/cordova/slidingMenuLayout" />
+        <source-file src="src/android/lib/SlidingMenuLayout.jar" target-dir="libs" />
+    </platform>
+
+   </plugin>
