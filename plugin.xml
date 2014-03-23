@@ -20,7 +20,7 @@
 
        
        <source-file src="src/android/com/smithimage/cordova/slidingMenuLayout/SlidingMenuLayoutPlugin.java" 
-        	target-dir="com/smithimage/cordova/slidingMenuLayout" />
+        	target-dir="src/com/smithimage/cordova/slidingMenuLayout" />
         <source-file src="src/android/lib/SlidingMenuLayout.jar" target-dir="libs" />
     </platform>
 
