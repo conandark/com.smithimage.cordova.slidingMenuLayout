@@ -15,6 +15,7 @@
         <config-file target="config.xml" parent="/widget">
           <feature name="SlidingMenuLayoutPlugin">
             <param name="android-package" value="com.smithimage.cordova.slidingMenuLayout.SlidingMenuLayoutPlugin"/>
+	    <param name="onload" value="true" />
           </feature>
         </config-file>
 
