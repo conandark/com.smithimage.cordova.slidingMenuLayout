@@ -23,7 +23,6 @@ import java.util.Map;
  */
 public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnClickListener {
 
-    private CordovaWebView webView;
     private SlidingMenuLayout menu;
     private List<String> items = new ArrayList<String>();
     private CallbackContext callbackContext = null;
@@ -31,8 +30,8 @@ public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnCli
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        this.webView = webView;
-        initialize(cordova);
+        super.initialize(cordova, webView);
+        this.initialize(cordova);
     }
 
     @Override
@@ -42,6 +41,8 @@ public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnCli
             initialize(cordova);
             return true;
         }
+
+
 
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -122,3 +123,4 @@ public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnCli
         callbackContext.sendPluginResult(result);
     }
 }
+
