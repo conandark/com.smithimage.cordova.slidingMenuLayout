@@ -3,10 +3,7 @@ package com.smithimage.cordova.slidingMenuLayout;
 import android.R;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import nl.arendjr.slidingmenulayout.SlidingMenuLayout;
 import org.apache.cordova.*;
 import org.json.JSONArray;
@@ -21,7 +18,7 @@ import java.util.Map;
 /**
  * Created by robert on 18/03/14.
  */
-public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnClickListener {
+public class SlidingMenuLayoutPlugin extends CordovaPlugin implements AdapterView.OnItemClickListener {
 
     private SlidingMenuLayout menu;
     private List<String> items = new ArrayList<String>();
@@ -99,7 +96,7 @@ public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnCli
                 ViewGroup.LayoutParams.MATCH_PARENT, 0.0F));
 
         ListView menuView =  new ListView(cordova.getActivity());
-        menuView.setOnClickListener(this);
+        menuView.setOnItemClickListener(this);
         menu.addView(menuView);
         ((ViewGroup)webView.getParent()).removeView(webView);
         menu.addView(webView);
@@ -111,9 +108,8 @@ public class SlidingMenuLayoutPlugin extends CordovaPlugin implements View.OnCli
         cordova.getActivity().setContentView(menu);
     }
 
-
     @Override
-    public void onClick(View view) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         TextView item = (TextView) view;
         Map<String, String> resultMap = new HashMap<String, String>();
         String id = String.format("%s", item.getText());
